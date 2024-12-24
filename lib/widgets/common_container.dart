@@ -4,19 +4,19 @@ import 'package:gorevim/utils/utils.dart';
 class CommonContainer extends StatelessWidget {
   const CommonContainer({
     super.key,
-    this.child,
-    this.height,
-    this.width,
-    this.color,
-    this.borderRadius = 16,
-    this.padding,
+    this.child, // Kapsayıcı içindeki widget
+    this.height, // Kapsayıcı yüksekliği
+    this.width, // Kapsayıcı genişliği
+    this.color, // Kapsayıcı rengi
+    this.borderRadius = 16, // Kenar yuvarlaklığı
+    this.padding, // İç boşluk
   });
-  final Widget? child; // Kapsayıcı içindeki widget
-  final double? height; // Kapsayıcı yüksekliği
-  final double? width; // Kapsayıcı genişliği
-  final Color? color; // Kapsayıcı rengi
-  final double borderRadius; // Kenar yuvarlaklığı
-  final EdgeInsets? padding; // İç boşluk
+  final Widget? child;
+  final double? height;
+  final double? width;
+  final Color? color;
+  final double borderRadius;
+  final EdgeInsets? padding;
 
   @override
   Widget build(BuildContext context) {
