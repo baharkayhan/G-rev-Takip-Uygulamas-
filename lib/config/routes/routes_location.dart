@@ -1,3 +1,5 @@
+// Rotaların URL ile eşleştirilmesini sağlar.
+
 import 'package:flutter/foundation.dart' show immutable;
 
 @immutable

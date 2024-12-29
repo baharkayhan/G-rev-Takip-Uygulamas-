@@ -1,3 +1,5 @@
+// Ortak bir metin girişi bileşeni
+
 import 'package:flutter/material.dart';
 import 'package:gorevim/utils/utils.dart';
 import 'package:gap/gap.dart';

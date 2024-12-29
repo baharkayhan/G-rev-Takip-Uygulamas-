@@ -1,10 +1,11 @@
+// Yardımcı fonksiyonlar
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gorevim/data/data.dart';
 import 'package:gorevim/providers/providers.dart';
 import 'package:intl/intl.dart';
 
-// Yardımcı fonksiyonları içeren sınıf
 @immutable
 class Helpers {
   const Helpers._();

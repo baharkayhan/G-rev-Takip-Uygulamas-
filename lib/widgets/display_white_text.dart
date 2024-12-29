@@ -1,3 +1,5 @@
+//Beyaz metin için bir widget
+
 import 'package:flutter/material.dart';
 import 'package:gorevim/utils/utils.dart';
 

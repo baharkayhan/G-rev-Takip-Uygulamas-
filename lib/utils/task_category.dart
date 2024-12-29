@@ -1,6 +1,7 @@
+// Görev kategorilerini temsil eden enum
+
 import 'package:flutter/material.dart';
 
-// Görev kategorilerini temsil eden enum
 enum TaskCategory {
   // Eğitim kategorisi, simge ve renk ile birlikte
   education(Icons.school, Colors.blueGrey),

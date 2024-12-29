@@ -1,3 +1,5 @@
+//Görev listesini gösterir
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gorevim/data/data.dart';

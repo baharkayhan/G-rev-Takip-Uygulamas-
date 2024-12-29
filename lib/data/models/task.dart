@@ -1,3 +1,5 @@
+//Bir görevi temsil eden veri modeli
+
 import 'package:equatable/equatable.dart';
 import 'package:gorevim/utils/utils.dart';
 

@@ -1,6 +1,8 @@
+//Uygulamanın temel yapılandırması ve başlangıç widget'ını içerir.
+
 import 'package:flutter/material.dart';
 import 'package:gorevim/config/config.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart'; //durum yönetimi için riverpod
 
 class Gorevim extends ConsumerWidget {
   const Gorevim({super.key});

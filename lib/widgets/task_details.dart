@@ -1,3 +1,5 @@
+//Görev detayları widget'ı
+
 import 'package:flutter/material.dart';
 import 'package:gorevim/data/data.dart';
 import 'package:gorevim/utils/utils.dart';

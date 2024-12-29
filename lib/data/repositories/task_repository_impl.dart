@@ -1,3 +1,5 @@
+//Task repository'nin uygulaması
+
 import 'package:gorevim/data/data.dart';
 
 // TaskRepositoryImpl sınıfı, TaskRepository arayüzünü uygular ve görev verilerini yönetir.

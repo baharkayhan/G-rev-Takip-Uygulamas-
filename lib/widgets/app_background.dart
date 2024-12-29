@@ -1,3 +1,5 @@
+//Uygulama arka planı
+
 import 'package:flutter/material.dart';
 import 'package:gorevim/utils/utils.dart';
 

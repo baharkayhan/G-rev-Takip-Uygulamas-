@@ -1,3 +1,5 @@
+//Rota yönetimi için kullanılan provider ayarlarını içerir.
+
 import 'package:flutter/material.dart';
 import 'package:gorevim/config/config.dart';
 import 'package:go_router/go_router.dart';

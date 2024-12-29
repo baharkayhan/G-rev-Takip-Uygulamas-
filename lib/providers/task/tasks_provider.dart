@@ -1,3 +1,5 @@
+//Görev listesini yöneten provider.
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gorevim/data/data.dart';
 import 'package:gorevim/providers/providers.dart';

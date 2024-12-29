@@ -1,3 +1,5 @@
+//Görev durumlarını tanımlar
+
 import 'package:equatable/equatable.dart';
 import 'package:gorevim/data/data.dart';
 

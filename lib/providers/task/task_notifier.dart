@@ -1,3 +1,5 @@
+//Görevlerin durumlarını takip eder.
+
 import 'package:flutter/foundation.dart';
 import 'package:gorevim/data/data.dart';
 import 'package:gorevim/providers/providers.dart';
