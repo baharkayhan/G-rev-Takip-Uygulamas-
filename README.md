@@ -1,16 +1,11 @@
-# gorevim
+# Görev Takip Uygulaması
 
-A new Flutter project.
+Bu proje, **Flutter** kullanılarak geliştirilmiş bir görev takip uygulamasıdır. Uygulama, kullanıcıların görevlerini kolayca yönetmesine, tamamlanan görevleri işaretlemesine ve görev detaylarını düzenlemesine olanak tanır.
 
-## Getting Started
+## Özellikler
+- Görev ekleme, düzenleme ve silme.
+- Görevlerin tamamlanma durumunu işaretleme.
+- Görevleri tarih veya önceliğe göre sıralama.
+- Basit ve kullanıcı dostu bir arayüz.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
