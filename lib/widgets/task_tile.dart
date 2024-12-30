@@ -35,7 +35,7 @@ class TaskTile extends StatelessWidget {
         children: [
           // Görev kategorisinin renginde bir daire içinde ikon gösterimi
           CircleContainer(
-            borderColor: task.category.color,
+            borderColor: task.category.color, // Daire rengi
             color: task.category.color.withOpacity(backgroundOpacity),
             child: Icon(
               task.category.icon,
@@ -45,12 +45,13 @@ class TaskTile extends StatelessWidget {
           const Gap(16),
           Expanded(
               child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start, // Sütunun başlangıcı
             children: [
               // Görev başlığı
               Text(
                 task.title,
                 style: style.titleMedium?.copyWith(
+                  // Başlık stilini belirleme
                   fontWeight: fontWeight,
                   fontSize: 20,
                   decoration: textDecoration,
@@ -60,6 +61,7 @@ class TaskTile extends StatelessWidget {
               Text(
                 task.time,
                 style: style.titleMedium?.copyWith(
+                  // Zaman stilini belirleme
                   decoration: textDecoration,
                 ),
               ),

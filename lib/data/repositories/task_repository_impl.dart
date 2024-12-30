@@ -1,4 +1,4 @@
-//Task repository'nin uygulaması
+//TasRepository'nin arayüznün uygulanması
 
 import 'package:gorevim/data/data.dart';
 

@@ -1,15 +1,15 @@
 //Yeni görev oluşturma ekranını tanımlar
 
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'; //Flutter UI bileşenleri için gerekli temel kütüphane
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gorevim/config/config.dart';
 import 'package:gorevim/data/data.dart';
 import 'package:gorevim/providers/providers.dart';
 import 'package:gorevim/utils/utils.dart';
 import 'package:gorevim/widgets/widgets.dart';
-import 'package:gap/gap.dart';
-import 'package:go_router/go_router.dart';
-import 'package:intl/intl.dart';
+import 'package:gap/gap.dart'; //UI bileşenleri arasında boşluk bırakmak için kullanılır
+import 'package:go_router/go_router.dart'; // Uygulama rotalarını yönetmek için kullanılır
+import 'package:intl/intl.dart'; //Tarih ve zaman formatlama için kullanılır
 
 // CreateTaskScreen sınıfı, yeni bir görev oluşturma ekranını temsil eder.
 class CreateTaskScreen extends ConsumerStatefulWidget {
@@ -42,6 +42,7 @@ class _CreateTaskScreenState extends ConsumerState<CreateTaskScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // Ekranın oluşturulması ve görüntülenmesi için kullanılır
     final colors = context.colorScheme;
 
     return Scaffold(
@@ -52,17 +53,23 @@ class _CreateTaskScreenState extends ConsumerState<CreateTaskScreen> {
         ),
       ),
       body: SafeArea(
+        // Ekranın güvenli alanını oluşturur
         child: SingleChildScrollView(
-          physics: const AlwaysScrollableScrollPhysics(),
-          padding: const EdgeInsets.all(20),
+          // Ekranın kaydırılabilir olmasını sağlar
+          physics:
+              const AlwaysScrollableScrollPhysics(), // Ekranın her zaman kaydırılabilir olmasını sağlar
+          padding:
+              const EdgeInsets.all(20), // Ekranın kenar boşluklarını belirler
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+            // Ekranın içeriğini sütun şeklinde düzenler
+            crossAxisAlignment: CrossAxisAlignment
+                .stretch, // Sütun içindeki bileşenlerin genişliğini ekran genişliğine kadar uzatır
             children: [
               // Görev adı girişi için metin alanı
               CommonTextField(
                 hintText: 'Görev Adı',
                 title: 'Görev Adı',
-                controller: _titleController,
+                controller: _titleController, // Metin denetleyicisi
               ),
               const Gap(30),
               // Kategori seçimi bileşeni
@@ -75,15 +82,17 @@ class _CreateTaskScreenState extends ConsumerState<CreateTaskScreen> {
               CommonTextField(
                 hintText: 'Açıklama',
                 title: 'Açıklama',
-                maxLines: 6,
+                maxLines: 6, // Metin alanının maksimum satır sayısını belirler
                 controller: _noteController,
               ),
               const Gap(30),
               // Kaydet butonu
               ElevatedButton(
-                onPressed: _createTask,
+                onPressed:
+                    _createTask, // Butona tıklandığında çalışacak fonksiyon
                 child: const Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(
+                      8.0), // Buton içeriğinin kenar boşluklarını belirler
                   child: DisplayWhiteText(
                     text: 'Kaydet',
                   ),
@@ -99,13 +108,16 @@ class _CreateTaskScreenState extends ConsumerState<CreateTaskScreen> {
 
   // Yeni görev oluşturur
   void _createTask() async {
-    final title = _titleController.text.trim();
-    final note = _noteController.text.trim();
-    final time = ref.watch(timeProvider);
-    final date = ref.watch(dateProvider);
-    final category = ref.watch(categoryProvider);
+    final title = _titleController.text.trim(); // Görev adını alır
+    final note = _noteController.text.trim(); // Görev açıklamasını alır
+    final time = ref.watch(timeProvider); // Görev saatinin alınması
+    final date = ref.watch(dateProvider); // Görev tarihinin alınması
+    final category =
+        ref.watch(categoryProvider); // Görev kategorisinin alınması
     if (title.isNotEmpty) {
+      // Görev adı boş değilse
       final task = Task(
+        // Görev nesnesi oluşturulur
         title: title,
         category: category,
         time: Helpers.timeToString(time),
@@ -115,11 +127,14 @@ class _CreateTaskScreenState extends ConsumerState<CreateTaskScreen> {
       );
 
       await ref.read(tasksProvider.notifier).createTask(task).then((value) {
-        AppAlerts.displaySnackbar(context, 'Görev başarıyla eklendi');
-        context.go(RouteLocation.home);
+        // Görev oluşturulur
+        AppAlerts.displaySnackbar(
+            context, 'Görev başarıyla eklendi'); // Snackbar mesajı gösterilir
+        context.go(RouteLocation.home); // Ana ekrana yönlendirilir
       });
     } else {
-      AppAlerts.displaySnackbar(context, 'Görev adı boş olamaz');
+      AppAlerts.displaySnackbar(context,
+          'Görev adı boş olamaz'); // Görev adı boşsa hata mesajı gösterilir
     }
   }
 }

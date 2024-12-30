@@ -2,14 +2,15 @@
 
 import 'package:gorevim/data/data.dart';
 import 'package:gorevim/utils/utils.dart';
-import 'package:path/path.dart';
+import 'package:path/path.dart'; // Dosya yollarını oluşturmak ve birleştirmek için path paketini içe aktarır.
 import 'package:sqflite/sqflite.dart';
 
 // Görev veritabanı işlemlerini yöneten sınıf
 class TaskDatasource {
   static final TaskDatasource _instance = TaskDatasource._();
 
-  factory TaskDatasource() => _instance;
+  factory TaskDatasource() =>
+      _instance; //Bu, her TaskDatasource örneği oluşturma girişiminde _instance'ı döndürür, yani sınıfın sadece tek bir örneği olur.
 
   TaskDatasource._() {
     _initDb();
@@ -57,7 +58,8 @@ class TaskDatasource {
       return await txn.insert(
         AppKeys.dbTable,
         task.toJson(),
-        conflictAlgorithm: ConflictAlgorithm.replace,
+        conflictAlgorithm: ConflictAlgorithm
+            .replace, // Ekleme işlemi sırasında çakışma durumunda verileri değiştirir.
       );
     });
   }

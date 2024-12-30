@@ -8,13 +8,14 @@ import 'package:go_router/go_router.dart';
 import 'package:gorevim/utils/utils.dart';
 
 // Uygulama genelinde kullanılan uyarı ve bildirimleri içeren sınıf
-@immutable
+@immutable //bu sınıf değiştirilemez
 class AppAlerts {
   const AppAlerts._();
 
   // Snackbar gösterir
   static displaySnackbar(BuildContext context, String message) {
     ScaffoldMessenger.of(context).showSnackBar(
+      //Snackbarı oluşturur ve ilgili ekranda gösterir.
       SnackBar(
         content: Text(
           message,
@@ -27,15 +28,19 @@ class AppAlerts {
 
   // Görev silme uyarı diyalogu gösterir
   static Future<void> showAlertDeleteDialog({
-    required BuildContext context,
-    required WidgetRef ref,
-    required Task task,
+    required BuildContext
+        context, //context diyalogun gösterileceği ekranı temsil eder
+    required WidgetRef
+        ref, //WidgetRef Riverpod tarafından sağlanan bir sınıftır ve sağlayıcıları okumak ve değiştirmek için kullanılır.
+    required Task task, //task silinecek görevi temsil eder
   }) async {
     Widget cancelButton = TextButton(
+      //iptal butonu
       child: const Text('HAYIR'),
       onPressed: () => context.pop(),
     );
     Widget deleteButton = TextButton(
+      //silme butonu
       onPressed: () async {
         await ref.read(tasksProvider.notifier).deleteTask(task).then(
           (value) {

@@ -1,6 +1,6 @@
 //Görevlerin durumlarını takip eder.
 
-import 'package:flutter/foundation.dart';
+import 'package:flutter/foundation.dart'; // debugPrint ile hata mesajı yazdırmak için
 import 'package:gorevim/data/data.dart';
 import 'package:gorevim/providers/providers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -18,7 +18,8 @@ class TaskNotifier extends StateNotifier<TaskState> {
   // Yeni bir görev oluşturur
   Future<void> createTask(Task task) async {
     try {
-      await _repository.addTask(task);
+      await _repository.addTask(
+          task); //Yeni görevi TaskRepository aracılığıyla veritabanına ekler.
       getTasks();
     } catch (e) {
       debugPrint(e.toString());
@@ -28,7 +29,7 @@ class TaskNotifier extends StateNotifier<TaskState> {
   // Bir görevi siler
   Future<void> deleteTask(Task task) async {
     try {
-      await _repository.deleteTask(task);
+      await _repository.deleteTask(task); //Veritabanındaki görevi siler
       getTasks();
     } catch (e) {
       debugPrint(e.toString());
@@ -38,7 +39,8 @@ class TaskNotifier extends StateNotifier<TaskState> {
   // Bir görevi günceller
   Future<void> updateTask(Task task) async {
     try {
-      final isCompleted = !task.isCompleted;
+      final isCompleted =
+          !task.isCompleted; //Görevin tamamlanma durumunu tersine çevirir
       final updatedTask = task.copyWith(isCompleted: isCompleted);
       await _repository.updateTask(updatedTask);
       getTasks();

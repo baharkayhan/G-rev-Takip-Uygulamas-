@@ -13,8 +13,8 @@ class SelectDateTime extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final time = ref.watch(timeProvider);
-    final date = ref.watch(dateProvider);
+    final time = ref.watch(timeProvider); // Saat durumunu izleme
+    final date = ref.watch(dateProvider); // Tarih durumunu izleme
 
     return Row(
       children: [
@@ -26,7 +26,8 @@ class SelectDateTime extends ConsumerWidget {
             readOnly: true,
             suffixIcon: IconButton(
               onPressed: () => Helpers.selectDate(context, ref),
-              icon: const FaIcon(FontAwesomeIcons.calendar),
+              icon:
+                  const FaIcon(FontAwesomeIcons.calendar), // Tarih seçici ikonu
             ),
           ),
         ),
@@ -50,11 +51,14 @@ class SelectDateTime extends ConsumerWidget {
   // Saat seçimi için zaman seçici fonksiyonu
   void _selectTime(BuildContext context, WidgetRef ref) async {
     TimeOfDay? pickedTime = await showTimePicker(
+      // Zaman seçiciyi göster
       context: context,
-      initialTime: TimeOfDay.now(),
+      initialTime: TimeOfDay.now(), // Varsayılan zaman
     );
     if (pickedTime != null) {
-      ref.read(timeProvider.notifier).state = pickedTime;
+      // Zaman seçildiyse
+      ref.read(timeProvider.notifier).state =
+          pickedTime; // Seçilen zamanı güncelle
     }
   }
 }

@@ -21,7 +21,7 @@ class Helpers {
         time.hour,
         time.minute,
       );
-      final formatType = DateFormat.jm();
+      final formatType = DateFormat.jm(); // 12:00 AM/PM
       return formatType.format(date);
     } catch (e) {
       return '12:00';
@@ -57,10 +57,11 @@ class Helpers {
   // String formatındaki tarihi DateTime nesnesine dönüştürür
   static DateTime _stringToDateTime(String dateString) {
     try {
-      DateFormat format = DateFormat.yMMMd();
+      DateFormat format = DateFormat
+          .yMMMd(); //DateFormat.yMMMd() ile tarih biçimi çözülür ve DateTime formatına çevrilir
       return format.parse(dateString);
     } catch (e) {
-      return DateTime.now();
+      return DateTime.now(); //Hata durumunda şu anki tarihi döndürür
     }
   }
 

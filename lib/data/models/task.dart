@@ -52,6 +52,7 @@ class Task extends Equatable {
 
   @override
   List<Object> get props {
+    //Nesne eşitliği için kullanılan özellikler
     return [
       title,
       note,

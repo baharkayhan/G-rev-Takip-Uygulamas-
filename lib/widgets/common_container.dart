@@ -20,17 +20,19 @@ class CommonContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //widgetın görsele dönüştürüldüğü yer
     final colors = context.colorScheme;
 
     return Container(
       height: height,
       width: width,
-      padding: padding,
+      padding: padding, //iç boşluk
       decoration: BoxDecoration(
-        color: color ?? colors.primaryContainer,
-        borderRadius: BorderRadius.circular(borderRadius),
+        //kapsayıcıyı şekillendirme
+        color: color ?? colors.primaryContainer, //kapsayıcı rengi
+        borderRadius: BorderRadius.circular(borderRadius), //kenar yuvarlaklığı
       ),
-      child: child,
+      child: child, //kapsayıcı içindeki widget
     );
   }
 }

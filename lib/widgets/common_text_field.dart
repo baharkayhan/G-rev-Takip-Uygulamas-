@@ -14,33 +14,37 @@ class CommonTextField extends StatelessWidget {
     this.suffixIcon,
     this.readOnly = false,
   });
-  final TextEditingController? controller;
-  final String hintText;
+  final TextEditingController? controller; // Metin denetleyicisi
+  final String hintText; // Metin alanı için ipucu metni
   final String title;
   final int? maxLines;
-  final Widget? suffixIcon;
-  final bool readOnly;
+  final Widget? suffixIcon; // Metin alanı için ek ikon
+  final bool readOnly; // Metin alanının salt okunur olup olmadığı
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
+      crossAxisAlignment:
+          CrossAxisAlignment.stretch, // Sütunun genişliğini genişlet
       children: [
         // Başlık metni
         Text(
           title,
-          style: context.textTheme.titleLarge,
+          style: context.textTheme
+              .titleLarge, // Başlık metni için büyük başlık metni stili
         ),
         const Gap(10),
         // Metin alanı
         TextField(
           readOnly: readOnly,
           onTapOutside: (event) {
-            FocusManager.instance.primaryFocus?.unfocus();
+            // Metin alanı dışına tıklandığında klavyeyi kapat
+            FocusManager.instance.primaryFocus?.unfocus(); // Klavyeyi kapat
           },
-          autocorrect: false,
+          autocorrect: false, // Otomatik düzeltmeyi kapat
           controller: controller,
           decoration: InputDecoration(
+            // Metin alanı dekorasyonu
             hintText: hintText,
             suffixIcon: suffixIcon,
           ),

@@ -22,29 +22,36 @@ class HomeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final deviceSize = context.deviceSize;
-    final date = ref.watch(dateProvider);
-    final taskState = ref.watch(tasksProvider);
-    final inCompletedTasks = _incompltedTask(taskState.tasks, ref);
-    final completedTasks = _compltedTask(taskState.tasks, ref);
+    // build metodu, HomeScreen'in arayüzünü oluşturur.
+    final deviceSize = context.deviceSize; // Cihazın boyutunu alır.
+    final date = ref.watch(dateProvider); // Tarih sağlayıcısını izler.
+    final taskState = ref.watch(tasksProvider); // Görev sağlayıcısını izler.
+    final inCompletedTasks =
+        _incompltedTask(taskState.tasks, ref); // Tamamlanmamış görevleri alır.
+    final completedTasks =
+        _compltedTask(taskState.tasks, ref); // Tamamlanmış görevleri alır.
 
     return Scaffold(
+      // Scaffold uygulamanın temel yapısını oluşturur
       body: Stack(
         children: [
           // Uygulama arka planı
           AppBackground(
-            headerHeight: deviceSize.height * 0.3,
+            headerHeight: deviceSize.height * 0.3, // Arka planın yüksekliği
             header: SingleChildScrollView(
+              // Başlık kısmını kaydırılabilir yapar
               physics: const AlwaysScrollableScrollPhysics(),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment:
+                    MainAxisAlignment.center, // Başlık kısmını dikeyde ortalar
                 children: [
                   // Tarih seçimi
                   InkWell(
-                    onTap: () => Helpers.selectDate(context, ref),
+                    onTap: () =>
+                        Helpers.selectDate(context, ref), // Tarih seçme işlevi
                     child: DisplayWhiteText(
-                      text: Helpers.dateFormatter(date),
-                      fontWeight: FontWeight.normal,
+                      text: Helpers.dateFormatter(date), // Tarihi biçimlendirir
+                      fontWeight: FontWeight.normal, // Yazı tipi kalınlığı
                     ),
                   ),
                   const DisplayWhiteText(text: 'Görev Listem', size: 40),
@@ -54,15 +61,16 @@ class HomeScreen extends ConsumerWidget {
           ),
           // Görev listesi
           Positioned(
-            top: 130,
+            top: 130, // Başlangıç yüksekliği
             left: 0,
             right: 0,
             child: SafeArea(
               child: SingleChildScrollView(
                 physics: const AlwaysScrollableScrollPhysics(),
-                padding: const EdgeInsets.all(20.0),
+                padding: const EdgeInsets.all(20.0), // Kenar boşlukları
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  crossAxisAlignment: CrossAxisAlignment
+                      .stretch, // Elemanları yatayda genişletir
                   children: [
                     // Tamamlanmamış görevler
                     DisplayListOfTasks(
@@ -104,14 +112,17 @@ class HomeScreen extends ConsumerWidget {
 
   // Tamamlanmamış görevleri filtreler
   List<Task> _incompltedTask(List<Task> tasks, WidgetRef ref) {
-    final date = ref.watch(dateProvider);
-    final List<Task> filteredTask = [];
+    final date = ref.watch(dateProvider); // Tarih sağlayıcısını izler
+    final List<Task> filteredTask = []; // Filtrelenmiş görevler
 
     for (var task in tasks) {
+      // Görevlerin her biri için
       if (!task.isCompleted) {
-        final isTaskDay = Helpers.isTaskFromSelectedDate(task, date);
+        // Görev tamamlanmamışsa
+        final isTaskDay = Helpers.isTaskFromSelectedDate(
+            task, date); // Görevin tarihi seçilen tarihe eşitse
         if (isTaskDay) {
-          filteredTask.add(task);
+          filteredTask.add(task); // Görevi filtrelenmiş görevlere ekle
         }
       }
     }
